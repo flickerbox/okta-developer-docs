@@ -8,6 +8,8 @@ module.exports = {
    */
   head: [
     ['script', { src: "https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" }],
+    ['script', { src: "https://code.jquery.com/jquery-2.2.4.min.js" }],
+    ['script', { src: "https://www.okta.com/sites/all/themes/Okta/src/scripts/shared/swiftype.autocomplete.min.js" }],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],

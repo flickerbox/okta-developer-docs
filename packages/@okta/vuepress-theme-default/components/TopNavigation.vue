@@ -113,8 +113,34 @@ export default {
         window.location.href = this.search_url + '#stq=' + search_phrase
       }
 
+    },
+
+
+    swiftypeAutoComplete(){
+
+        jQuery(".st-search-input").swiftype({
+            renderFunction: function(document_type, item) {
+                var pageUrlUnsafe = (typeof item['url'] !== 'undefined') ? item['url'].toString().replace(/["']/g, "") : '';
+                var pageTitleUnsafe = (typeof item['title'] !== 'undefined') ? item['title'].toString().replace(/["']/g, "") : '';
+                var pageUrl = $('<div />').text(pageUrlUnsafe).html();
+                var pageTitle = $('<div />').text(pageTitleUnsafe).html();
+                var out = '<a href="' + pageUrl + '" class="st-search-result-link"><div class="st-result autocomplete-item"><p class="title">' + pageTitle + '</p></div></a>';
+                return out;
+            },
+
+            engineKey: 'NqMYCYpFoWmsc4NaNY_y',
+            perPage: 40
+        });
     }
+
   },
+
+  mounted() {
+
+    this.swiftypeAutoComplete()
+
+  },
+
 
   created() {
     if(this.$themeConfig.home_url) {
